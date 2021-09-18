@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!--- This is the body where text would show up -->
+  </body>
+
+  <script>
+    /**
+     * This is a function that append <p>Text</p> to the body
+     */
+    function appendText(text) {
+      const p = document.createElement("p");
+      p.appendChild(document.createTextNode(text));
+      document.body.appendChild(p);
+    }
+
+    appendText("Calling Backend using http://localhost:3000");
+
+    fetch("http://localhost:3000")
+      .then((response) => response.text())
+      .then((data) => {
+        appendText(data);
+      })
+      .catch((error) => {
+        appendText(error.message);
+      });
+  </script>
+</html>
