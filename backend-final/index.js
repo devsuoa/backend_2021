@@ -1,4 +1,5 @@
 const Hapi = require("@hapi/hapi");
+const Boom = require("@hapi/boom");
 const { PrismaClient } = require("@prisma/client");
 
 const init = async () => {
@@ -8,26 +9,37 @@ const init = async () => {
     port: 3000,
     host: "localhost",
   });
+  server.events.on("log", (event, tags) => {
+    if (tags.error) {
+      console.log(
+        `Server error: ${event.error ? event.error.message : "unknown"}`
+      );
+    }
+  });
 
   server.route({
     method: "GET",
     path: "/events",
-    handler: (request, h) => {
+    handler: async (request, h) => {
       const event = await prisma.event.findMany();
-
-      return event;
+      h(event);
     },
   });
 
   server.route({
     method: "GET",
     path: "/events/{id}",
-    handler: function (request, h) {
+    handler: async (request, h) => {
       const event = await prisma.event.findUnique({
         where: {
-          id: request.id,
+          id: Number(request.params.id),
         },
       });
+
+      if (event == null) {
+        return Boom.notFound();
+      }
+
       return event;
     },
   });
@@ -35,12 +47,18 @@ const init = async () => {
   server.route({
     method: "POST",
     path: "/events",
-    handler: function (request, h) {
+    handler: async (request, h) => {
       const payload = request.payload;
 
-      const event = await prisma.user.create({
+      const event = await prisma.event.create({
         data: {
-          payload,
+          name: payload.name,
+          building: payload.building,
+          location: payload.location,
+          start_time: new Date(payload.start_time),
+          description: payload.description,
+          link: payload.link,
+          image_uri: payload.image_uri,
         },
       });
 
