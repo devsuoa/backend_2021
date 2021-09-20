@@ -1,85 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>UI Prototyping 2021</title>
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="scripts/home.js" defer></script>
-  </head>
-  <body>
-    <div class="app-bar">
-      <img src="images/logo.png" />
-    </div>
-    <section class="app-content">
-      <h1>Upcoming events</h1>
-      <div class="event-list">
-        <section class="event">
-          <img class="event-image" alt="prototyping" src="images/event1.png" />
-          <div class="event-grid">
-            <div class="event-info">
-              <h2>Protoyping Workshop</h2>
-              <div class="event-short">
-                <img alt="building" src="images/building.svg" />
-                <p>Building 401-401</p>
-              </div>
-              <div class="event-short">
-                <img alt="location" src="images/location.svg" />
-                <p>University of Auckland</p>
-              </div>
+    <head>
+        <title>UI Prototyping 2021</title>
+        <link rel="stylesheet" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="scripts/home.js" defer></script>
+    </head>
+    <body>
+        <div class="app-bar">
+            <img src="images/logo.png" />
+        </div>
+        <section id="app-content">
+            <div class="title">
+                <h1>Upcoming events</h1>
+                <a href="create.html">
+                    <div class="circle-btn">+</div>
+                </a>
             </div>
-            <div class="event-date">
-              <p class="color">THURS</p>
-              <p class="color">26</p>
-              <p class="color">AUGUST</p>
-              <p>6:00PM</p>
-            </div>
-          </div>
+            <div id="event-list"></div>
         </section>
-        <section class="event">
-          <img class="event-image" alt="backend" src="images/event2.png" />
-          <div class="event-grid">
-            <div class="event-info">
-              <h2>Backend Workshop</h2>
-              <div class="event-short">
-                <img alt="building" src="images/building.svg" />
-                <p>Building 401-401</p>
-              </div>
-              <div class="event-short">
-                <img alt="location" src="images/location.svg" />
-                <p>University of Auckland</p>
-              </div>
-            </div>
-            <div class="event-date">
-              <p class="color">FRI</p>
-              <p class="color">17</p>
-              <p class="color">SEPT</p>
-              <p>6:00PM</p>
-            </div>
-          </div>
-        </section>
-        <section class="event">
-          <img class="event-image" alt="backend" src="images/event2.png" />
-          <div class="event-grid">
-            <div class="event-info">
-              <h2>Backend Workshop</h2>
-              <div class="event-short">
-                <img alt="building" src="images/building.svg" />
-                <p>Building 401-401</p>
-              </div>
-              <div class="event-short">
-                <img alt="location" src="images/location.svg" />
-                <p>University of Auckland</p>
-              </div>
-            </div>
-            <div class="event-date">
-              <p class="color">FRI</p>
-              <p class="color">17</p>
-              <p class="color">SEPT</p>
-              <p>6:00PM</p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </section>
-  </body>
+    </body>
 </html>
