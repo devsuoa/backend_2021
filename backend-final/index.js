@@ -22,7 +22,7 @@ const init = async () => {
     path: "/events",
     handler: async (request, h) => {
       const event = await prisma.event.findMany();
-      h(event);
+      return event;
     },
   });
 
