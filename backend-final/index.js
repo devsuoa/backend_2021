@@ -8,6 +8,9 @@ const init = async () => {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
+    routes: {
+      cors: true
+    }
   });
   server.events.on("log", (event, tags) => {
     if (tags.error) {
@@ -22,7 +25,7 @@ const init = async () => {
     path: "/events",
     handler: async (request, h) => {
       const event = await prisma.event.findMany();
-      h(event);
+      return event;
     },
   });
 
