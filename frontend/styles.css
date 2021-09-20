@@ -1,7 +1,6 @@
 html {
     background: white;
     max-height: 812px;
-    overflow: scroll;
 }
 
 body {
@@ -97,6 +96,8 @@ a {
 .event-grid {
     display: grid;
     grid-template-columns: minmax(100px, 1fr) 100px;
+    column-gap: 10px;
+    padding: 15px;
 }
 
 .event-image {
@@ -105,10 +106,6 @@ a {
 
 .event-description {
     padding: 12px;
-}
-
-.event-info {
-    padding-left: 12px;
 }
 
 .event-info h2 {
@@ -145,6 +142,10 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+}
+
+#event-time {
+    margin-top: 5px;
 }
 
 #event-link,
@@ -198,7 +199,11 @@ textarea {
     max-width: 500px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 720px) {
+    #event-list {
+        grid-template-columns: 1fr;
+    }
+
     form {
         width: 100%;
     }

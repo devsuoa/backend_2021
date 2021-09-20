@@ -1,57 +1,20 @@
 console.log("Starting");
 
-const dummy = [
-    {
-        id: 1,
-        eventName: "Prototyping Workshop",
-        imageUrl: "images/event1.png",
-        building: "Building 401-401",
-        location: "University of Auckland",
-        datetime: "2021-08-26T06:00:00.000Z",
-        eventdesc: `This workshop will teach the fundamentals of UI design, 
-        prototyping, and CSS. This interactive workshop will cover everything 
-        from outlining an idea with wireframes to coding up a mock-up.`,
-    },
-    {
-        id: 2,
-        eventName: "Backend Workshop",
-        imageUrl: "images/event1.png",
-        building: "Building 401-401",
-        location: "University of Auckland",
-        datetime: "2021-09-17T06:00:00.000Z",
-        eventdesc: `This workshop will teach the fundamentals of UI design, 
-        prototyping, and CSS. This interactive workshop will cover everything 
-        from outlining an idea with wireframes to coding up a mock-up.`,
-    },
-    {
-        id: 3,
-        eventName: "Dev Tools Workshop",
-        imageUrl: "images/event1.png",
-        building: "Building 401-401",
-        location: "University of Auckland",
-        datetime: "2021-08-26T06:00:00.000Z",
-        eventdesc: `This workshop will teach the fundamentals of UI design, 
-        prototyping, and CSS. This interactive workshop will cover everything 
-        from outlining an idea with wireframes to coding up a mock-up.`,
-    },
-];
-
 const urlSearchParams = new URLSearchParams(window.location.search);
-const params = Object.fromEntries(urlSearchParams.entries());
-const e = dummy.find((d) => d.id == params.event);
+const { event: id } = Object.fromEntries(urlSearchParams.entries());
 
-if (e) {
-    const date = new Date(e.datetime);
+function updateEvent(e) {
+    const date = new Date(e.start_time);
     const html = `
     <div class="heading-wrapper">
-        <h1>${e.eventName}</h1>
+        <h1>${e.name}</h1>
         <button id="delete-btn">Delete event</button>
     </div>
     <section class="event info">
         <img
             class="event-image"
             alt="prototyping"
-            src=${e.imageUrl}
+            src=${e.image_uri}
         />
         <div class="event-description">
             <div class="event-date">
@@ -69,7 +32,7 @@ if (e) {
                 <p>${e.location}</p>
             </div>
             <p>
-                ${e.eventdesc} <br /><br />Sign up for
+                ${e.description} <br /><br />Sign up for
                 Eventbrite tickets below:
             </p>
             <a id="event-link" href="#"> Get tickets here </a>
@@ -78,8 +41,22 @@ if (e) {
 `;
 
     document.getElementById("app-content").innerHTML = html;
+
+    document.getElementById("delete-btn").addEventListener("click", () => {
+        alert(`deleting ${e.id}`);
+    });
 }
 
-document.getElementById("delete-btn").addEventListener("click", () => {
-    alert(`deleting ${e.id}`);
-});
+async function main() {
+    const url = `http://localhost:3000/events/${id}`;
+    const res = await fetch(url, {
+        mode: "cors",
+    });
+    const event = await res.json();
+
+    updateEvent(event);
+}
+
+if (id) {
+    main();
+}

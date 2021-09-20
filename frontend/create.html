@@ -8,7 +8,9 @@
     </head>
     <body>
         <div class="app-bar">
-            <img src="images/logo.png" />
+            <a href="/">
+                <img src="images/logo.png" />
+            </a>
         </div>
         <section id="app-content">
             <div class="title">
@@ -19,7 +21,7 @@
                 <input
                     type="text"
                     id="event-name-input"
-                    name="eventName"
+                    name="name"
                     placeholder="Event name.."
                 />
 
@@ -27,7 +29,7 @@
 
                 <textarea
                     id="event-desc-input"
-                    name="eventdesc"
+                    name="description"
                     rows="5"
                 ></textarea>
 
@@ -51,7 +53,7 @@
                 <input
                     type="text"
                     id="event-image-input"
-                    name="imageUrl"
+                    name="image_uri"
                     placeholder="Image url..."
                 />
 
@@ -59,8 +61,11 @@
                 <input
                     type="datetime-local"
                     id="date-time-input"
-                    name="datetime"
+                    name="start_time"
                 />
+
+                <label for="country">Link</label>
+                <input id="event-link-input" name="link" />
 
                 <input id="submit-btn" type="submit" value="Submit" />
             </form>
