@@ -69,6 +69,25 @@ const init = async () => {
         },
     });
 
+    server.route({
+        method: "DELETE",
+        path: "/events/{id}",
+        handler: async (request, h) => {
+            console.log(`deleting ${request.params.id}`);
+            try {
+                const event = await prisma.event.delete({
+                    where: {
+                        id: Number(request.params.id),
+                    },
+                });
+
+                return event;
+            } catch (e) {
+                return Boom.notFound();
+            }
+        },
+    });
+
     await server.start();
     console.log("Server running on %s", server.info.uri);
 };

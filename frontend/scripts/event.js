@@ -43,7 +43,13 @@ function updateEvent(e) {
     document.getElementById("app-content").innerHTML = html;
 
     document.getElementById("delete-btn").addEventListener("click", () => {
-        alert(`deleting ${e.id}`);
+        // alert(`deleting ${e.id}`);
+        const url = `http://localhost:3000/events/${id}`;
+
+        fetch(url, {
+            mode: "cors",
+            method: "DELETE",
+        });
     });
 }
 

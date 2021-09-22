@@ -102,6 +102,8 @@ a {
 
 .event-image {
     width: 100%;
+    object-fit: cover;
+    max-height: 200px;
 }
 
 .event-description {
