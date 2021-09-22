@@ -1,0 +1,19 @@
+{
+  "name": "devs_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.1.5",
+    "hapi": "^18.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^3.0.2"
+  }
+}
