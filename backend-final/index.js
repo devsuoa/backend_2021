@@ -51,8 +51,7 @@ const init = async () => {
         method: "POST",
         path: "/events",
         handler: async (request, h) => {
-            // const payload = request.payload;
-            const payload = JSON.parse(request.payload);
+            const payload = request.payload;
 
             const event = await prisma.event.create({
                 data: {
