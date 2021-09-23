@@ -73,7 +73,6 @@ const init = async () => {
         method: "DELETE",
         path: "/events/{id}",
         handler: async (request, h) => {
-            console.log(`deleting ${request.params.id}`);
             try {
                 const event = await prisma.event.delete({
                     where: {
