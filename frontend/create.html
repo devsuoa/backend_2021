@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UI Prototyping 2021</title>
+        <link rel="stylesheet" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="scripts/create.js" defer></script>
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="/">
+                <img src="images/logo.png" />
+            </a>
+        </div>
+        <section id="app-content">
+            <div class="title">
+                <h1>Create an event</h1>
+            </div>
+            <form id="event-form">
+                <label for="event-name-input">Event Name</label>
+                <input
+                    type="text"
+                    id="event-name-input"
+                    name="name"
+                    placeholder="Event name.."
+                />
+
+                <label for="event-desc-input">Event Description</label>
+
+                <textarea
+                    id="event-desc-input"
+                    name="description"
+                    rows="5"
+                ></textarea>
+
+                <label for="event-building-input">Building</label>
+                <input
+                    type="text"
+                    id="event-building-input"
+                    name="building"
+                    placeholder="Building code..."
+                />
+
+                <label for="event-location-input">Location</label>
+                <input
+                    type="text"
+                    id="event-location-input"
+                    name="location"
+                    placeholder="University Of Auckland"
+                />
+
+                <label for="event-image-input">Event Image</label>
+                <input
+                    type="text"
+                    id="event-image-input"
+                    name="image_uri"
+                    placeholder="Image url..."
+                />
+
+                <label for="country">Date and Time</label>
+                <input
+                    type="datetime-local"
+                    id="date-time-input"
+                    name="start_time"
+                />
+
+                <label for="country">Link</label>
+                <input id="event-link-input" name="link" />
+
+                <input id="submit-btn" type="submit" value="Submit" />
+            </form>
+        </section>
+    </body>
+</html>
