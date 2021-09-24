@@ -1,7 +1,9 @@
 const Hapi = require("@hapi/hapi");
 const Boom = require("@hapi/boom");
+const { PrismaClient } = require('@prisma/client')
 
 const init = async () => {
+    const prisma = new PrismaClient()
     const server = Hapi.server({
         port: 3000,
         host: "localhost",
@@ -21,8 +23,9 @@ const init = async () => {
         method: "GET",
         path: "/events",
         handler: async (request, h) => {
-            // TODO: not implemented
-            return Boom.notImplemented();
+            const events = await prisma.event.findMany()
+
+            return events;
         },
     });
 
@@ -39,8 +42,21 @@ const init = async () => {
         method: "POST",
         path: "/events",
         handler: async (request, h) => {
-            // TODO: not implemented
-            return Boom.notImplemented();
+            const payload = request.payload;
+
+            const event = await prisma.event.create({
+                data: {
+                    name: payload.name,
+                    building: payload.building,
+                    location: payload.location,
+                    start_time: new Date(payload.start_time),
+                    description: payload.description,
+                    link: payload.link,
+                    image_uri: payload.image_uri,
+                }
+            })
+
+            return event;
         },
     });
 
