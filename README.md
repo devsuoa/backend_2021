@@ -8,8 +8,8 @@ This workshop requires you to download some files and install some software on y
 
 1. [NodeJS](https://nodejs.org/en/) - (Recommended version node 14 or greater )
 2. [Visual Studio Code](https://code.visualstudio.com/) - or alternative text editors.
-3. [A Browser that is not Internet Explorer] We recommend using Chrome but anything except IE is fine
-4. [Download this repository] Look for the little green code button on this page. Click on it and select "Download zip". This will downlaod a zip file to your comptuer. Unzip this file once the download is complete and save it to your Desktop. This folder contains all the files we will be using in the workshop!
+3. **A Browser that is not Internet Explorer** We recommend using Chrome but anything except IE is fine
+4. **Download this repository** Look for the little green code button on this page. Click on it and select "Download zip". This will downlaod a zip file to your comptuer. Unzip this file once the download is complete and save it to your Desktop. This folder contains all the files we will be using in the workshop!
 
 # Software
 
