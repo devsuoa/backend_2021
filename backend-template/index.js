@@ -44,6 +44,15 @@ const init = async () => {
         },
     });
 
+    server.route({
+        method: "DELETE",
+        path: "/events/{id}",
+        handler: async (request, h) => {
+            // TODO: not implemented
+            return Boom.notImplemented();
+        },
+    });
+
     await server.start();
     console.log("Server running on %s", server.info.uri);
 };
